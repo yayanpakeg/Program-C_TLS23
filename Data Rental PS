@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+struct Rental{
+    char nama[10] [10], tgl [10] [10];
+    int jml, lama [10], tot, menu;
+}book;
+
+void header(){
+    cout<< "________________" <<endl;
+    cout<< " Data Rental PS "<<endl;
+    cout<< "________________" <<endl;
+}
+int main (){
+    header();
+    cout<< "Masukkan Jumlah Bocil Rental : ";
+    cin>> book.jml;
+    for(int i=0;i<book.jml;i++){
+        cout<<endl;
+        cout<< "Masukkan Nama : ";
+        cin>> book.nama[i];
+        cout<< "Masukkan Lama Rental : ";
+        cin>> book.lama[i];
+        cout<< "Masukkan Tanggal Rental (dd/mm/yy) : ";
+        cin>> book.tgl[i];
+        cout<<endl;
+    }
+    cout<<endl;
+    header();
+    cout<<"1> Lihat Daftar Bocil Rental"<<endl;
+    cout<<"2> Keluar"<<endl;
+    cout<<"Pilih Menu : ";
+    cin>> book.menu;
+
+    if (book.menu == 1){
+        for (int j=0;j<book.jml;j++){
+            cout<<endl;
+            cout<< "Nama Bocil Rental   : "<<book.nama[j]<<endl;
+            cout<< "Lama Rental         : "<<book.lama[j]<< " jam"<<endl;
+            cout<< "Tanggal Rental      : "<<book.tgl[j]<<endl;
+            book.tot=10000*book.lama[j];
+            cout<< "Biaya Rental        :"<<"Rp. "<<book.tot<<endl;
+        }
+    }
+    else if (book.menu == 2){
+            exit(0);
+    }
+    else{
+        cout<< "Menu Tidak Ada!";
+    }
+    return 0;
+}
